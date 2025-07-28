@@ -1,6 +1,6 @@
 .hh{
     width: 100%;
-    height: 100%;
-    background-color: gray;
-    color: white;
+    min-height: 100vh;
+    background-color: #F9FAFB;
+    color: black;
 }

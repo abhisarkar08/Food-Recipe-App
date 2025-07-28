@@ -1,11 +1,106 @@
-.hh{
-    color: red;
-    text-decoration: none;
-    font-size: 1rem;
+/* Main navbar container */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.he{
-    display: flex;
+
+.menuTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: darkgoldenrod;
+  display: block;
+}
+
+
+/* Logo or brand */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: darkgoldenrod;
+}
+
+/* Burger menu button */
+.burger {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+  z-index: 1100;
+  background: none;
+  border: none;
+  color: black;
+}
+
+/* Mobile menu container */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  height: 100vh;
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 1.5rem;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+/* Menu visible */
+.show {
+  left: 0;
+}
+
+/* Active nav link */
+.hh {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: red;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+/* Inactive nav link */
+.hp {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: black;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hp:hover {
+  color: darkred;
+}
+/* Desktop view */
+@media (min-width: 768px) {
+  .burger {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    height: auto;
+    width: auto;
+    background: transparent;
+    backdrop-filter: none;
     flex-direction: row;
-    justify-content: center;
-    gap: 25px;
+    padding: 0;
+    gap: 2rem;
+  }
+  .menuTitle{
+    display: none;
+  }
 }
