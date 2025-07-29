@@ -12,10 +12,36 @@ const Home = () => {
           <button>Go to Recipes</button>
         </div>
       </section>
+      <div className={styles.trans}>
+        <div className={styles.slider}>
+          <div className={styles.text}>
+            <p>Chicken Biryani</p>
+            <p>Paneer Tikka</p>
+            <p>Rajma Chawal</p>
+            <p>Chole Bhature</p>
+            <p>Curry Rice</p>
+          </div>
+          <div className={styles.text}>
+            <p>Chicken Biryani</p>
+            <p>Paneer Tikka</p>
+            <p>Rajma Chawal</p>
+            <p>Chole Bhature</p>
+            <p>Curry Rice</p>
+          </div>
+          <div className={styles.text}>
+            <p>Chicken Biryani</p>
+            <p>Paneer Tikka</p>
+            <p>Rajma Chawal</p>
+            <p>Chole Bhature</p>
+            <p>Curry Rice</p>
+          </div>
+        </div>
+      </div>
       <section className={styles.s2}>
         <div className={styles.big}>
-          <h2>Cooking Tips and Tricks</h2>
-          <hr/>
+          <div className={styles.h3}>
+            <h2>Cooking Tips and Tricks</h2>
+          </div>
           <div className={styles.sma}>
             <div className={styles.box}>
               <div className={styles.num}>1</div>

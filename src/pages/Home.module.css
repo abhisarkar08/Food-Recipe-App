@@ -45,12 +45,20 @@
     transform: scale(0.9);
 }
 .s2{
-    margin: 1rem 2rem;
+    margin: 1rem 1rem;
     padding: 1rem 1rem;
 }
 .big{
     color: #9F2D00;
     background-color: #FFF8EC;
+}
+.h3{
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+}
+.h3 h2{
+    text-decoration: underline;
 }
 .sma{
     padding: 0.5rem;
@@ -65,11 +73,14 @@
     border-radius: 10px;
     padding: 1rem;
     background-color: white;
+    width: auto;
 }
 .num {
-    width: 2.8rem;
-    height: 2.8rem;              /* Equal width & height */
-    border-radius: 50%;          /* Makes it a circle */
+    width: 15vw;
+    height: 15vw;            
+    border-radius: 50%;  
+    max-width: 50px; 
+    max-height: 50px;
     background-color: #FFEDD4;
     font-size: x-large;
     font-weight: 600;
@@ -84,9 +95,56 @@
   
 .con h3{
     font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 .con p{
     font-size: 1rem;
+}
+.con{
+    width: 90%;
+}
+.trans{
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2rem;
+    position: relative;
+}
+.slider {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: trans 10s linear infinite;
+}
+.text{
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    padding: 1rem 0;
+}
+.text p{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.trans::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to left, white 0%, transparent 5%, transparent 95%, white 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+@keyframes trans{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-33.333%);
+    }
 }
 
 @media (min-width:633px){
@@ -136,5 +194,13 @@
     }
     .h2 button{
         font-size: 1.5rem;
+    }
+    .s2{
+        margin: 4rem 6rem;
+        padding: 2rem 6rem;
+    }
+    .big{
+        width: 85%;
+        margin-left: 8%;
     }
 }
