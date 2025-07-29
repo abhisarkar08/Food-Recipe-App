@@ -59,20 +59,34 @@
     gap: 1rem;
 }
 .box{
-    border: 2px solid black;
+    border-left: 4px solid darkorange;
     display: flex;
     flex-direction: row;
     border-radius: 10px;
+    padding: 1rem;
+    background-color: white;
 }
-.num{
-    width: 5vw;
-    height: 25%;
-    font-size: x-large;
-    border-radius: 50%;
+.num {
+    width: 2.8rem;
+    height: 2.8rem;              /* Equal width & height */
+    border-radius: 50%;          /* Makes it a circle */
     background-color: #FFEDD4;
-    margin: 1rem;
+    font-size: x-large;
     font-weight: 600;
+    color: #a54800;
+    margin: 1rem 1rem 0rem 0rem;       
     text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 0.4rem;
+  }
+  
+.con h3{
+    font-size: 1.5rem;
+}
+.con p{
+    font-size: 1rem;
 }
 
 @media (min-width:633px){
@@ -84,6 +98,10 @@
     .h1,.h2{
         width: 50%;
     }
+    .sma{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 @media (min-width:1200px){
     .h1,.h2{
@@ -92,10 +110,18 @@
     .h1 h1{
         font-size: 3.2rem;
     }
+    .s2{
+        margin: 2rem 3rem;
+        padding: 2rem 2rem;
+    }
 }
 @media (min-width:1482px){
     .h1,.h2{
         width: 30%;
+    }
+    .s2{
+        margin: 3rem 4rem;
+        padding: 1rem 4rem;
     }
 }
 @media (min-width:1960px){
