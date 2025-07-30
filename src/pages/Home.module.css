@@ -8,7 +8,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 1rem 2rem;
+    padding: 2rem;
 }
 .h1 h1{
     font-size: 3rem;
@@ -20,9 +20,10 @@
 }
 .h1 h4{
     font-size: 1.2rem;
-    margin: 1rem 0rem;
+    margin-top: 1rem;
     color: #e0e0e0;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1.5;
 
 }
 .h2 button{
@@ -51,6 +52,9 @@
 .big{
     color: #9F2D00;
     background-color: #FFF8EC;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 3rem 2rem;
 }
 .h3{
     margin-bottom: 4rem;
@@ -74,6 +78,7 @@
     padding: 1rem;
     background-color: white;
     width: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .num {
     width: 15vw;
@@ -83,8 +88,8 @@
     max-height: 50px;
     background-color: #FFEDD4;
     font-size: x-large;
-    font-weight: 600;
-    color: #a54800;
+    font-weight: 800;
+    color: #ff8904;
     margin: 1rem 1rem 0rem 0rem;       
     text-align: center;
     display: flex;
@@ -99,6 +104,8 @@
 }
 .con p{
     font-size: 1rem;
+    color: black;
+    line-height: 1.5;
 }
 .con{
     width: 90%;
@@ -147,14 +154,21 @@
     }
 }
 
+@media (min-width:412px){
+    .h1,.h2{
+        padding: 1.7rem;
+        transition: all 0.2s ease-in;
+    }
+}
 @media (min-width:633px){
     .h1,.h2{
-        width: 60%;
+        width: 70%;
+        padding: 2.5rem;
     }
 }
 @media (min-width:850px){
     .h1,.h2{
-        width: 50%;
+        width: 56%;
     }
     .sma{
         display: grid;
@@ -163,7 +177,7 @@
 }
 @media (min-width:1200px){
     .h1,.h2{
-        width: 40%;
+        width: 55%;
     }
     .h1 h1{
         font-size: 3.2rem;
@@ -175,7 +189,7 @@
 }
 @media (min-width:1482px){
     .h1,.h2{
-        width: 30%;
+        width: 35%;
     }
     .s2{
         margin: 3rem 4rem;
@@ -184,7 +198,8 @@
 }
 @media (min-width:1960px){
     .h1,.h2{
-        width: 25%;
+        width: 35%;
+        padding: 3rem;
     }
     .h1 h1{
         font-size: 4.5rem;

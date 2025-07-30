@@ -1,0 +1,162 @@
+.h{
+    padding: 1rem;
+    background-color: #FFFBEB;
+}
+.s1{
+    padding: 1rem;
+}
+.tit{
+    text-align: center;
+}
+.tit h1{
+    font-size: 2.2rem;
+    margin: 2rem 0rem;
+    color: #9F2D00;
+    font-weight: bolder;
+}
+.tit p{
+    color: #D3835B;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+}
+.card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+.c{
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #FF6900;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.c:hover{
+    transform: scale(1.1);
+}
+.ico{
+    font-size: 1.5rem;
+}
+.s2{
+    padding: 1rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+.bbig{
+    background-color: #FFF1CC;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.bbig h2{
+    font-size: 1.8rem;
+    font-weight: 750;
+    color: #9F2D00;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+.bbig p{
+    line-height: 1.5;
+    font-weight: 500;
+    color: #d13800;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+}
+.bbig button{
+    background-color: #FF6900;
+    color: white;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    max-width: 209px;
+    margin: 0 auto;
+}
+.bbig button:active{
+    transform: scale(0.9);
+}
+.s3{
+    padding: 1rem;
+}
+.sma{
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 5.5rem 0rem;
+}
+.para h2{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #9F2D00
+}
+.para p{
+    line-height: 1.5;
+    color: #d13800;
+}
+.butt{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.b1,.b2{
+    font-size: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+}
+.b1{
+    background-color:#FFEDD4 ;
+    color: #9f2d00;
+}
+.b2{
+    background-color:#FF6900 ;
+    color: white;
+}
+@media (min-width:768px) {
+    .tit{
+        width: 100%;
+        max-width: 1000px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .tit h1{
+        font-size: 3.2rem;
+    }
+    .tit p{
+        font-size: 1.2rem;
+    }
+    .card{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (min-width:976px) {
+    .c{
+        max-width: 211px;
+        width: 100%;
+    }
+    .card{
+        max-width: 1120px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}

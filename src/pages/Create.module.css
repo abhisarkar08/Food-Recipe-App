@@ -17,6 +17,11 @@
     color: #AF3713;
     font-size: 1.1rem;
 }
+.s1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .w{
     margin-top: 3rem;
     background-color: #FFFAEB;
@@ -38,10 +43,77 @@
     font-size: 1.1rem;
     color: #AF3713;
 }
+.form{
+    margin-top: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    background-color: white;
+}
+.lab{
+    color: #9F4163;
+    font-weight: 550;
+    margin-bottom: 0.5rem;
+}
+.bo{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+.in{
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid orange;
+    font-size: 0.9rem;
+}
+.tex{
+    border: 1px solid orange;
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    height: 7rem;
+    border-radius: 10px;
+}
+.but{
+    display: flex;
+    justify-content: flex-end;
+}
+.but button{
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    border: none;
+    background-color: #FF6900;
+    color: white;
+    font-weight: 550;
+}
+.but button:active{
+    transform: scale(0.9);
+}
+.sele{
+    background-color: #FFB86A;
+    color: black;
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+}
 @media (min-width:640px){
     .h{
        padding: 3rem;
     }
+    .row{
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+    }
+    .bo{
+        flex: 1;
+        min-width: 0;
+    }
+    .sele{
+        width: 100%;
+    }
+    
 }
 @media (min-width:768px){
     .h{
@@ -49,7 +121,19 @@
     }
 }
 @media (min-width:920px){
-    .w{
+    .s1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .w, .form{
        padding: 48px;
+       width: 100%;
+       max-width: 820px;
+    }
+    .wel{
+        max-width: 1100px;
+        margin: 0 auto;
     }
 }
