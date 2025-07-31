@@ -1,11 +1,26 @@
-import { Link } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import styles from "./RecipeCard.module.css"
 const RecipeCard = (props) => {
   const{id,image,title,description,name} =props.recipe;
-  return (<Link className={styles.link}>
-  <img className={styles.img} src={image} alt=""/>
-  <h1 className={styles.h1}>{title}</h1>
-  <p className={styles.p}>{description.slice(0,100)}</p></Link>
+  const navigate = useNavigate();
+  return (
+    <div className={styles.top}>
+      <div className={styles.head}>
+        <h1>All Recipes</h1>
+        <p>Browse and manage your recipe collection</p>
+      </div>
+      <div className={styles.link}>
+        <img className={styles.img} src={image} alt=""/>
+        <div className={styles.con}>
+          <h1 className={styles.h1}>{title}</h1>
+          <p className={styles.name}>{name}</p>
+          <p className={styles.p}>{description.slice(0,100)}...<small>more</small></p>
+          <button onClick={() => navigate(`/recipes/details/${id}`)}>
+            See Recipe
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 

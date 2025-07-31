@@ -3,7 +3,10 @@ import { useForm } from 'react-hook-form';
 import { nanoid } from 'nanoid';
 import { recipecontext } from "../Context/RecipesContext";
 import { useContext } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const Create = () => {
+  const navigate = useNavigate();
   const {data, setdata} = useContext(recipecontext);
   const {register, handleSubmit, reset} =useForm();
 
@@ -13,7 +16,9 @@ const Create = () => {
     copydata.push(recipe);
     setdata(copydata);*/
     setdata([...data,recipe]);
+    toast.success("New Recipe Created!")
     reset();
+    navigate("/recipes");
   };
   return (
     <div className={styles.h}>
