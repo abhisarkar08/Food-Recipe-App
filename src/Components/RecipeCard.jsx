@@ -5,10 +5,6 @@ const RecipeCard = (props) => {
   const navigate = useNavigate();
   return (
     <div className={styles.top}>
-      <div className={styles.head}>
-        <h1>All Recipes</h1>
-        <p>Browse and manage your recipe collection</p>
-      </div>
       <div className={styles.link}>
         <img className={styles.img} src={image} alt=""/>
         <div className={styles.con}>

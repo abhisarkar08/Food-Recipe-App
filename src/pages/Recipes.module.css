@@ -1,3 +1,15 @@
+.page {
+  width: 100%;
+  max-width: 1280px;
+  padding: 1rem;
+}
+.head{
+    padding: 0rem 2rem;
+    margin-bottom: 2rem;
+}
+.head p{
+    opacity: 0.6;
+}
 .t {
     display: grid;
     grid-template-columns: 1fr; /* mobile: 1 column */

@@ -8,7 +8,16 @@ const Recipes = () => {
     <RecipeCard key={data.id} recipe={data}/>
   ));
   return (
-    <div className={styles.t}>{renderrecipe}</div>
+    <div className={styles.page}>
+      <div className={styles.head}>
+        <h1>All Recipes</h1>
+        <p>Browse and manage your recipe collection</p>
+      </div>
+
+      <div className={styles.t}>
+        {renderrecipe}
+      </div>
+    </div>
   )
 }
 
