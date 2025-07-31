@@ -1,5 +1,20 @@
 import styles from "./Create.module.css"
+import { useForm } from 'react-hook-form'; 
+import { nanoid } from 'nanoid';
+import { recipecontext } from "../Context/RecipesContext";
+import { useContext } from "react";
 const Create = () => {
+  const {data, setdata} = useContext(recipecontext);
+  const {register, handleSubmit, reset} =useForm();
+
+  const SubmitHandler = (recipe) => {
+    recipe.id = nanoid();
+    /*const copydata = [...data];
+    copydata.push(recipe);
+    setdata(copydata);*/
+    setdata([...data,recipe]);
+    reset();
+  };
   return (
     <div className={styles.h}>
       <div className={styles.wel}>
@@ -7,15 +22,20 @@ const Create = () => {
         <p>Let others discover your culinary masterpiece</p>
       </div>
       <section className={styles.s1}>
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit(SubmitHandler)}>
           <div className={styles.row}>
             <div className={styles.bo}>
               <label className={styles.lab}>Recipe Title</label>
-              <input className={styles.in} type="text" placeholder="🍴 Enter Recipe Title"/>
+              <input 
+                {...register("title")}
+                className={styles.in} 
+                type="text"
+                placeholder="🍴 Enter Recipe Title"
+              />
             </div>
             <div className={styles.bo}>
               <label className={styles.lab}>Category</label>
-              <select className={styles.sele}>
+              <select className={styles.sele} {...register("category")}>
                 <option value="">Select Category</option>
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
@@ -27,28 +47,55 @@ const Create = () => {
           <div className={styles.row}>
             <div className={styles.bo}>
               <label className={styles.lab}>Cheif Name</label>
-              <input className={styles.in} type="text" placeholder="Your Name"/>
+              <input 
+                {...register("name")}
+                className={styles.in} 
+                type="text" 
+                placeholder="Your Name"
+              />
             </div>
             <div className={styles.bo}>
               <label className={styles.lab}>Cooking Time</label>
-              <input className={styles.in} type="text" placeholder="🕑 eg., 30 minutes"/>
+              <input 
+                {...register("time")}
+                className={styles.in} 
+                type="text" 
+                placeholder="🕑 eg., 30 minutes"
+              />
             </div>
           </div>
           <div className={styles.bo}>
             <label className={styles.lab}>Description</label>
-            <textarea className={styles.tex} placeholder="Enter a brief description of the recipe"/>
+            <textarea 
+              {...register("description")}
+              className={styles.tex} 
+              placeholder="Enter a brief description of the recipe"
+            />
           </div>
           <div className={styles.bo}>
             <label className={styles.lab}>Ingredients</label>
-            <textarea className={styles.tex} placeholder="📃 Enter ingredients (one per line)"/>
+            <textarea 
+              {...register("ingredients")}
+              className={styles.tex} 
+              placeholder="📃 Enter ingredients (one per line)"
+            />
           </div>
           <div className={styles.bo}>
             <label className={styles.lab}>Cooking Instructions</label>
-            <textarea className={styles.tex} placeholder="Enter step-by-step instructions"/>
+            <textarea
+              {...register("instruction")}
+              className={styles.tex} 
+              placeholder="Enter step-by-step instructions"
+            />
           </div>
           <div className={styles.bo}>
             <label className={styles.lab}>Recipe Image URL</label>
-            <input className={styles.in} type="text" placeholder="📷 Enter Image URL"/>
+            <input
+              {...register("image")}
+              className={styles.in} 
+              type="url" 
+              placeholder="📷 Enter Image URL"
+            />
           </div>
           <div className={styles.but}>
             <button type="submit">Submit</button>
