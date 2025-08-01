@@ -2,7 +2,9 @@ import styles from "./About.module.css"
 import { GiMeal, GiChefToque } from 'react-icons/gi';
 import { FaUsers } from 'react-icons/fa';
 import { AiFillHeart } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 const About = () => {
+  const navig = useNavigate();
   return (
     <div className={styles.h}>
       <section className={styles.s1}>
@@ -33,7 +35,7 @@ const About = () => {
         <div className={styles.bbig}>
           <h2>Our Mission</h2>
           <p>We believe that good food has the power to bring people together and create lasting memories. Our platform is designed to inspire creativity in the kitchen and foster a supportive community of food enthusiasts from all walks of life.</p>
-          <button type="submit">Add Recipes</button>
+          <button onClick={()=>navig('/create')}>Add Recipes</button>
         </div>
       </section>
       <section className={styles.s3}>

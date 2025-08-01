@@ -34,9 +34,15 @@ const RecipesContext = (props) => {
         "Top with slices of fresh mozzarella and fresh basil leaves."]
     }
     ]);
-    console.log(data);
+    const[fav, setfav] = useState([]);
+    const addfav = (recipe) =>{
+      const same = fav.some((r)=> r.id == recipe.id);
+      if(!same){
+        setfav([...fav, recipe]);
+      }
+    };
   return (
-    <recipecontext.Provider value={{data, setdata}}>
+    <recipecontext.Provider value={{data, setdata, fav, setfav, addfav}}>
         {props.children}
     </recipecontext.Provider>
   )

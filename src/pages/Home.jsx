@@ -1,5 +1,7 @@
 import styles from "./Home.module.css"
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+  const navig = useNavigate();
   return (
     <div className={styles.ho}>
       <section className={styles.s1}>
@@ -8,8 +10,8 @@ const Home = () => {
           <h4>Explore the world of mouthwatering recipes, create your own culinary masterpices, and share with them with a passionate foodie community. Let the flavours tell your story!</h4>
         </div>
         <div className={styles.h2}>
-          <button>Create Recipes</button>
-          <button>Go to Recipes</button>
+          <button onClick={()=>navig('./create')}>Create Recipes</button>
+          <button onClick={()=>navig('./recipes')}>Go to Recipes</button>
         </div>
       </section>
       <div className={styles.trans}>

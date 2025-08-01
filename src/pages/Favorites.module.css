@@ -4,12 +4,17 @@
   padding: 1rem;
   min-height: calc(100vh - 100px);
 }
+.empty{
+    opacity: 0.6;
+    padding: 0rem 5rem;
+}
 .head{
     padding: 0rem 2rem;
     margin-bottom: 2rem;
 }
 .head p{
     opacity: 0.6;
+    padding: 1rem 0rem;
 }
 .t {
     display: grid;
@@ -31,4 +36,3 @@
       gap: 2rem;
     }
   }
-  

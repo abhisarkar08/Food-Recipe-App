@@ -1,18 +1,37 @@
-import { useContext } from "react";
+import { useContext,useState,useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {recipecontext} from "../Context/RecipesContext"
 import styles from "./SingleRecipes.module.css"
-import { FaRegClock } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { FaTags, FaArrowLeft } from "react-icons/fa";
-import { FaRegHeart, FaSyncAlt, FaRegTrashAlt, FaHeart } from "react-icons/fa";
-import { useState } from "react";
+import { FaRegHeart, FaSyncAlt, FaRegTrashAlt, FaHeart, FaRegClock, FaUser, FaTags, FaArrowLeft } from "react-icons/fa";
+import { toast } from "react-toastify";
 const SingleRecipes = () => {
-  const {data} = useContext(recipecontext);
+  const {data, setdata,fav, setfav} = useContext(recipecontext);
   const params = useParams(); 
   const recipe = data.find((data)=>String(params.id) == String(data.id));
   const navig = useNavigate();
   const[like, setlike]=useState(false);
+  useEffect(() => {
+    const alFav = fav.some((r) => r.id === recipe?.id);
+    setlike(alFav);
+  }, [fav, recipe])
+  const Favor = () => {
+    const alrFav = fav.some((r) => r.id === recipe.id);
+    setlike(!alrFav);
+
+    if (alrFav) {
+      setfav(fav.filter((r) => r.id !== recipe.id));
+      toast.info("Removed from Favorites");
+    } else {
+      setfav([...fav, recipe]);
+      toast.success("Added to Favorites");
+    }
+  };
+  const DeleteHandler = ()=>{
+    const filterdata =data.filter((r)=>r.id!=params.id);
+    setdata(filterdata);
+    toast.success("Recipe Deleted Successfully");
+    navig(`/recipes`);
+  }
   return (
     <div className={styles.big}>
       <div className={styles.smaa}>
@@ -23,13 +42,13 @@ const SingleRecipes = () => {
           </button>
         </div>
         <div className={styles.icon}>
-          <div className={styles.heart} onClick={() => setlike(!like)}>
+          <div className={styles.heart} onClick={(Favor)}>
             {like ? <FaHeart /> : <FaRegHeart />}
           </div>
-          <div className={styles.update}>
+          <div className={styles.update} onClick={()=>navig('/update')}>
             <FaSyncAlt/>
           </div>
-          <div className={styles.trash}>
+          <div className={styles.trash} onClick={(DeleteHandler)}>
             <FaRegTrashAlt/>
           </div>
         </div>
