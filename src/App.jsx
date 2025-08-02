@@ -1,7 +1,7 @@
 import Mainroutes from './routes/Mainroutes'
 import styles from "./App.module.css";
-import NavBar from './Components/NavBar';
-import Footer from './Components/footer';
+import NavBar from "./Components/NavBar/NavBar";
+import Footer from "./Components/Footer/Footer";
 
 const App = () => {
   

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import styles from "./Update.module.css"
 import { useParams, useNavigate } from "react-router-dom";
-import { recipecontext } from "../Context/RecipesContext";
+import { recipecontext } from "../../Context/RecipesContext";
 import { useContext, useEffect} from "react";
 import { toast } from "react-toastify";
 const Update = () => {
@@ -22,6 +22,7 @@ const Update = () => {
         const copydata = [...data];
         copydata[index] = {...copydata[index], ...recipe};
         setdata(copydata);
+        localStorage.setItem("recipes", JSON.stringify(copydata))
         toast.success("Update Successfully")
         navig(`/recipes/details/${id}`);
     };

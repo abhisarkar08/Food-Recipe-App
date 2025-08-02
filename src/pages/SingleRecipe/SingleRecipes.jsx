@@ -1,37 +1,52 @@
 import { useContext,useState,useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {recipecontext} from "../Context/RecipesContext"
+import {recipecontext} from "../../Context/RecipesContext"
 import styles from "./SingleRecipes.module.css"
 import { FaRegHeart, FaSyncAlt, FaRegTrashAlt, FaHeart, FaRegClock, FaUser, FaTags, FaArrowLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
 const SingleRecipes = () => {
-  const {data, setdata,fav, setfav} = useContext(recipecontext);
+  const {data, setdata,fav, setfav, isLoaded} = useContext(recipecontext);
   const params = useParams(); 
-  const recipe = data.find((data)=>String(params.id) == String(data.id));
+  const recipe = data?.find((data)=>String(params.id) == String(data.id));
   const navig = useNavigate();
   const[like, setlike]=useState(false);
   useEffect(() => {
-    const alFav = fav.some((r) => r.id === recipe?.id);
-    setlike(alFav);
-  }, [fav, recipe])
+    if (recipe?.id && isLoaded) { // Only run when data is loaded from localStorage
+        const alFav = fav.some((r) => r.id === recipe.id);
+        setlike(alFav);
+    }
+}, [fav, recipe?.id, isLoaded])
   const Favor = () => {
     const alrFav = fav.some((r) => r.id === recipe.id);
     setlike(!alrFav);
 
     if (alrFav) {
-      setfav(fav.filter((r) => r.id !== recipe.id));
+      const nfav = (fav.filter((r) => r.id !== recipe.id));
+      setfav(nfav);
+      localStorage.setItem("favorites", JSON.stringify(nfav))
       toast.info("Removed from Favorites");
     } else {
-      setfav([...fav, recipe]);
+      const nfav = ([...fav, recipe]);
+      setfav(nfav);
+      localStorage.setItem("favorites", JSON.stringify(nfav))
       toast.success("Added to Favorites");
     }
   };
   const DeleteHandler = ()=>{
     const filterdata =data.filter((r)=>r.id!=params.id);
     setdata(filterdata);
+    localStorage.setItem("recipes", JSON.stringify(filterdata))
     toast.success("Recipe Deleted Successfully");
     navig(`/recipes`);
   }
+  if (!recipe) {
+  return (
+    <div className={styles.big}>
+      <p>Loading recipe...</p>
+    </div>
+  );
+}
+
   return (
     <div className={styles.big}>
       <div className={styles.smaa}>
@@ -42,13 +57,13 @@ const SingleRecipes = () => {
           </button>
         </div>
         <div className={styles.icon}>
-          <div className={styles.heart} onClick={(Favor)}>
+          <div className={styles.heart} onClick={Favor}>
             {like ? <FaHeart /> : <FaRegHeart />}
           </div>
           <div className={styles.update} onClick={()=>navig(`/update/${recipe.id}`)}>
             <FaSyncAlt/>
           </div>
-          <div className={styles.trash} onClick={(DeleteHandler)}>
+          <div className={styles.trash} onClick={DeleteHandler}>
             <FaRegTrashAlt/>
           </div>
         </div>
@@ -82,17 +97,23 @@ const SingleRecipes = () => {
           <div className={styles.ins}>
             <h4>Instructions</h4>
             <ol>
-              {recipe.instruction.map((step, index) => (
-                <li key={index}>{step}</li>
-              ))}
+              {Array.isArray(recipe.instruction) && recipe.instruction.length > 0 
+              ? recipe.instruction.map((step, index) => (
+                  <li key={index}>{step}</li>
+                ))
+              : <li>No instructions available</li>
+              }
             </ol>
           </div>
           <div className={styles.ing}>
             <h4>Ingredients</h4>
             <ol>
-              {recipe.ingredients.map((step, index) => (
-                <li key={index}>{step}</li>
-              ))}
+              {Array.isArray(recipe.ingredients) && recipe.ingredients.length > 0
+                ? recipe.ingredients.map((ingredient, index) => (
+                    <li key={index}>{ingredient}</li>
+                  ))
+                : <li>No ingredients available</li>
+              }
             </ol>
           </div>
         </div>

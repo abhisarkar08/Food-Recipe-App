@@ -1,7 +1,7 @@
 import styles from "./Create.module.css"
 import { useForm } from 'react-hook-form'; 
 import { nanoid } from 'nanoid';
-import { recipecontext } from "../Context/RecipesContext";
+import { recipecontext } from "../../Context/RecipesContext";
 import { useContext } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -12,10 +12,18 @@ const Create = () => {
 
   const SubmitHandler = (recipe) => {
     recipe.id = nanoid();
-    /*const copydata = [...data];
+    recipe.ingredients = recipe.ingredients 
+    ? recipe.ingredients.split('\n').filter(item => item.trim() !== '')
+    : [];
+  
+  recipe.instruction = recipe.instruction 
+    ? recipe.instruction.split('\n').filter(item => item.trim() !== '')
+    : [];
+    const copydata = [...data];
     copydata.push(recipe);
-    setdata(copydata);*/
-    setdata([...data,recipe]);
+    setdata(copydata);
+    localStorage.setItem("recipes", JSON.stringify(copydata))
+    // setdata([...data,recipe]);
     toast.success("New Recipe Created!")
     reset();
     navigate("/recipes");

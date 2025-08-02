@@ -1,0 +1,60 @@
+.page {
+  width: 100%;
+  max-width: 2700px;
+  padding: 1rem;
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+}
+.empty{
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.empty h2{
+  color: red;
+  margin-bottom: 1rem;
+}
+.empty p{
+  opacity: 0.6;
+}
+.head{
+    padding: 0rem 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    max-width: none;
+    margin-left: -1rem;
+}
+.head p{
+    opacity: 0.6;
+}
+.t {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile: 1 column */
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  .t:has(.empty) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+  
+  @media (min-width: 600px) {
+    .t {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .t:not(:has(.empty)) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+  }
+  @media (min-width: 2000px) {
+    .t:not(:has(.empty)) {
+      grid-template-columns: repeat(4, 1fr); /* यह line add करें */
+      gap: 1rem;
+    }
+  }
