@@ -83,9 +83,11 @@
 }
 .smal{
     display: grid;
-    gap: 0.2rem;
     grid-template-columns: repeat(2, 1fr);
     padding: 0.5rem;
+    justify-items: center;
+    align-items: center;
+    gap: 0.2rem;
 }
 .time,.name,.cate{
     padding: 0.3rem;
@@ -96,6 +98,8 @@
     gap: 0.2rem;
     border: 1px solid lightgray;
     border-radius: 10px;
+    height: 6rem;
+    width: 100%;
 }
 .t{
     color: #FE9A00  ;
@@ -128,6 +132,7 @@
 .ins h4,.ing h4{
     text-align: center;
     color: #F54A00;
+    font-size: 1.2rem;
 }
 .ins li, .ing li{
     margin-bottom: 0.7rem;
@@ -136,6 +141,9 @@
 @media (min-width:500px) {
     .smal{
         grid-template-columns: repeat(3, 1fr);
+    }
+    .time,.name,.cate{
+        width: 90%;
     }
 }
 @media (min-width:768px) {
@@ -148,5 +156,9 @@
     .in{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+    .time,.name,.cate{
+        width: 70%;
+        max-width: 148px;
     }
 }

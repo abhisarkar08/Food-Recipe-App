@@ -35,11 +35,16 @@
 }
 .in, .sele{
     padding: 0.3rem;
+    font-size: 1rem;
+}
+.sele{
+    background-color: orange;
 }
 .tex{
     height: 7rem;
     border-radius: 10px;
     padding: 0.2rem;
+    font-size: 1rem;
 }
 .but{
     display: flex;
