@@ -1,12 +1,30 @@
 import { useForm } from "react-hook-form";
 import styles from "./Update.module.css"
-
+import { useParams, useNavigate } from "react-router-dom";
+import { recipecontext } from "../Context/RecipesContext";
+import { useContext, useEffect} from "react";
+import { toast } from "react-toastify";
 const Update = () => {
-  const { register, handleSubmit } = useForm(); // ✅ Add this
-
-  const SubmitHandler = (data) => {
-    console.log(data); 
-  };
+    const navig = useNavigate();
+    const {id} = useParams();
+    const { data, setdata } = useContext(recipecontext);
+    const recipe = data.find((r) => String(r.id) === String(id));
+    const { register, handleSubmit, reset } = useForm({
+        defaultValues: recipe || {}
+    });
+    useEffect(() => {
+        if (recipe) {
+            reset(recipe); // jab data mile tab form me set ho
+        }
+    }, [recipe, reset]);
+    const SubmitHandler = (recipe) => {
+        const index = data.findIndex((recipe)=> String(id) == String(recipe.id));
+        const copydata = [...data];
+        copydata[index] = {...copydata[index], ...recipe};
+        setdata(copydata);
+        toast.success("Update Successfully")
+        navig(`/recipes/details/${id}`);
+    };
   return (
     <div className={styles.main}>
         <div className={styles.top}>
@@ -96,3 +114,4 @@ const Update = () => {
 }
 
 export default Update
+

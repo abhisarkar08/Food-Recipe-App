@@ -45,7 +45,7 @@ const SingleRecipes = () => {
           <div className={styles.heart} onClick={(Favor)}>
             {like ? <FaHeart /> : <FaRegHeart />}
           </div>
-          <div className={styles.update} onClick={()=>navig('/update')}>
+          <div className={styles.update} onClick={()=>navig(`/update/${recipe.id}`)}>
             <FaSyncAlt/>
           </div>
           <div className={styles.trash} onClick={(DeleteHandler)}>
