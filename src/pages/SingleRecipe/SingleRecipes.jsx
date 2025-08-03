@@ -24,19 +24,34 @@ const SingleRecipes = () => {
       const nfav = (fav.filter((r) => r.id !== recipe.id));
       setfav(nfav);
       localStorage.setItem("favorites", JSON.stringify(nfav))
-      toast.info("Removed from Favorites");
+      toast.info("Removed from Favorites",{
+        position:"top-center"
+      });
     } else {
       const nfav = ([...fav, recipe]);
       setfav(nfav);
       localStorage.setItem("favorites", JSON.stringify(nfav))
-      toast.success("Added to Favorites");
+      toast.success("Added to favorites", {
+        position: "top-center"
+      });
+
     }
   };
   const DeleteHandler = ()=>{
+    const confirmDele = window.confirm("Are you sure you want to Delete this recipe?");
+  
+    if (!confirmDele) {
+      return; 
+    }
+
+
     const filterdata =data.filter((r)=>r.id!=params.id);
     setdata(filterdata);
     localStorage.setItem("recipes", JSON.stringify(filterdata))
-    toast.success("Recipe Deleted Successfully");
+    toast.success("Recipe deleted Successfully", {
+      position: "top-center"
+    });
+
     navig(`/recipes`);
   }
   if (!recipe) {

@@ -11,6 +11,12 @@ const Create = () => {
   const {register, handleSubmit, reset} =useForm();
 
   const SubmitHandler = (recipe) => {
+    const confirmCreate = window.confirm("Are you sure you want to create this recipe?");
+  
+    if (!confirmCreate) {
+      return; 
+    }
+
     recipe.id = nanoid();
     recipe.ingredients = recipe.ingredients 
     ? recipe.ingredients.split('\n').filter(item => item.trim() !== '')
@@ -24,7 +30,9 @@ const Create = () => {
     setdata(copydata);
     localStorage.setItem("recipes", JSON.stringify(copydata))
     // setdata([...data,recipe]);
-    toast.success("New Recipe Created!")
+    toast.success("New Recipe Created!",{
+      position:"top-center"
+    })
     reset();
     navigate("/recipes");
   };

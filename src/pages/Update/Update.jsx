@@ -18,12 +18,23 @@ const Update = () => {
         }
     }, [recipe, reset]);
     const SubmitHandler = (recipe) => {
+        const confirmUp = window.confirm("Are you sure you want to Update this recipe?");
+  
+        if (!confirmUp) {
+            return; 
+        }
+
+
+
         const index = data.findIndex((recipe)=> String(id) == String(recipe.id));
         const copydata = [...data];
         copydata[index] = {...copydata[index], ...recipe};
         setdata(copydata);
         localStorage.setItem("recipes", JSON.stringify(copydata))
-        toast.success("Update Successfully")
+        toast.success("Update Successfully", {
+            position: "top-center"
+        });
+
         navig(`/recipes/details/${id}`);
     };
   return (

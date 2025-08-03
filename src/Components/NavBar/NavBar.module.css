@@ -45,7 +45,7 @@
   left: -100%;
   height: 100vh;
   width: 70%;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 1);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
@@ -68,6 +68,8 @@
   color: red;
   font-size: 1.1rem;
   text-decoration: none;
+  padding-bottom: 1rem; /* Add padding for spacing */
+  border-bottom: 1px solid #e0e0e0;
 }
 
 /* Inactive nav link */
@@ -79,15 +81,40 @@
   font-size: 1.1rem;
   text-decoration: none;
   transition: color 0.2s ease;
+  position: relative;
+}
+/* Hover animation - सिर्फ यह add करें */
+.hp::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: darkred;
+  transition: width 0.3s ease;
+}
+
+.hp:hover::after {
+  width: 100%;
 }
 
 .hp:hover {
-  color: darkred;
+  color: darkorchid;
+}
+
+@media (min-width: 500px) {
+  .hh, .hp {
+    font-size: 1.3rem; /* Increased font size for larger screens */
+  }
 }
 /* Desktop view */
-@media (min-width: 768px) {
+@media (min-width: 860px) {
   .burger {
     display: none;
+  }
+  .hh,.hp{
+    font-size: 1.26rem;
   }
 
   .menu {
@@ -102,5 +129,9 @@
   }
   .menuTitle{
     display: none;
+  }
+  .hh{
+    border: none;
+    padding-bottom: 0;
   }
 }
