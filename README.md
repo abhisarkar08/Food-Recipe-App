@@ -4,7 +4,7 @@
 The Food Recipe App is a React-based application that lets users manage their personal collection of recipes. Users can add new recipes, update existing ones, delete unwanted recipes, and mark favorites. All recipes and user actions are saved locally in the browser using `localStorage`, so your data stays safe between sessions — no backend needed!
 
 ## 🔗 Live Demo  
-[Click here to use the app!](https://foodreciipes.netlify.app/)
+You can check out the live version of this project here: [Click here to use the app!](https://foodreciipes.netlify.app/)
 
 ## ✨ Features
 - ➕ Add new recipes with title, ingredients, and instructions
@@ -22,10 +22,7 @@ The Food Recipe App is a React-based application that lets users manage their pe
 ### Add New Recipe
 ![Add Recipe Form](public/Recipes.png)
 
-### Recipe Details
-![Recipe View](public/card.png)
-
-### Create Recipe Form
+### Create Recipe
 ![Create Form](public/create.png)
 
 
