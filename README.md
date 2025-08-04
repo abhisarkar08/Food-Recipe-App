@@ -14,6 +14,21 @@ The Food Recipe App is a React-based application that lets users manage their pe
 - 💾 Persistent data saved in browser's `localStorage`
 - 🎨 Clean and easy-to-use UI built with React
 
+## 🖼️ Screenshots
+
+### Main Interface
+![Home Screen](public/home.png)
+
+### Add New Recipe
+![Add Recipe Form](public/Recipes.png)
+
+### Recipe Details
+![Recipe View](public/card.png)
+
+### Create Recipe Form
+![Create Form](public/create.png)
+
+
 ## 🚀 Installation
 
 git clone https://github.com/abhisarkar08/food-recipe-app.git
