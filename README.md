@@ -1,12 +1,34 @@
-# React + Vite
+# 🍲 Food Recipe App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Overview
+The Food Recipe App is a React-based application that lets users manage their personal collection of recipes. Users can add new recipes, update existing ones, delete unwanted recipes, and mark favorites. All recipes and user actions are saved locally in the browser using `localStorage`, so your data stays safe between sessions — no backend needed!
 
-Currently, two official plugins are available:
+## 🔗 Live Demo  
+[Click here to use the app!](https://foodreciipes.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- ➕ Add new recipes with title, ingredients, and instructions
+- ✏️ Edit and update existing recipes
+- 🗑️ Delete recipes from your collection
+- ⭐ Mark and view favorite recipes
+- 💾 Persistent data saved in browser's `localStorage`
+- 🎨 Clean and easy-to-use UI built with React
 
-## Expanding the ESLint configuration
+## 🚀 Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+git clone https://github.com/abhisarkar08/food-recipe-app.git
+
+cd food-recipe-app
+
+npm install
+
+npm start
+
+
+## 🛠️ Usage
+- Launch the app with the above commands.  
+- Browse recipes on the main screen.  
+- Add, update, or delete recipes easily.  
+- Mark recipes as favorites.  
+- All data is saved automatically in your browser.
+
